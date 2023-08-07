@@ -1,3 +1,4 @@
+import logging
 from enum import Enum
 from typing import (
     Any,
@@ -94,6 +95,8 @@ class FastAPI(Starlette):
         ),
         **extra: Any,
     ) -> None:
+        if debug == True:
+            logging.info("debug model is on!")
         self.debug = debug
         self.title = title
         self.summary = summary
